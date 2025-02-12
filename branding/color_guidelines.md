@@ -20,39 +20,39 @@ Our logo combines two semi-circular elements that form an abstract 'S', represen
 
 ### Primary Colors
 
-- Turquoise Blue: #86cecb ![#86cecb](data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><rect width="20" height="20" fill="%2386cecb"/></svg>)
+- Turquoise Blue: #86cecb 
 
   - Main brand color
   - Use for primary UI elements
   - Represents creativity and fluidity
 
-- Deep Teal: #137a7f ![#137a7f](data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><rect width="20" height="20" fill="%23137a7f"/></svg>)
+- Deep Teal: #137a7f
   - Secondary brand color
   - Use for important actions and depth
   - Represents trust and stability
 
 ### Accent Color
 
-- Vibrant Pink: #e12885 ![#e12885](data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><rect width="20" height="20" fill="%23e12885"/></svg>)
+- Vibrant Pink: #e12885
   - Use sparingly for highlights and calls-to-action
   - Creates energy and excitement
   - Ideal for interactive elements and important notifications
 
 ### Monochrome Colors
 
-- Pure White: #EEEEEE ![#FFFFFF](data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><rect width="20" height="20" fill="%23FFFFFF" stroke="%23bec8d1"/></svg>)
+- Pure White: #EEEEEE
 
   - Primary background color
   - Use for text on dark backgrounds
   - Creates clean, open spaces
 
-- Charcoal: #373b3e ![#373b3e](data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><rect width="20" height="20" fill="%23373b3e"/></svg>)
+- Charcoal: #373b3e
 
   - Primary text color
   - Use for headings and body copy
   - Creates strong contrast and readability
 
-- Light Grey: #dbe1e6 ![#dbe1e6](data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><rect width="20" height="20" fill="%23bec8d1"/></svg>)
+- Light Grey: #dbe1e6 
   - Secondary text color
   - Use for subtle elements and backgrounds
   - Creates hierarchy and depth
