@@ -1,28 +1,29 @@
-import { useState, useEffect } from 'react';
-import { getData } from './helpers/fetchHelpers';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRightToBracket } from '@fortawesome/free-solid-svg-icons';
+import { useState, useEffect } from "react";
+import { getData } from "./helpers/fetchHelpers";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 
 // types
-import { User, Project } from './globalTypes';
+import { User, Project } from "./globalTypes";
 
+// test test test
 // components
-import ProjectItem from './components/ProjectItem';
-import ProfilePage from './components/ProfilePage';
-import CreateNewProjectPage from './components/CreateNewProjectPage';
-import SignUpPage from './components/SignUpPage';
-import LogInPage from './components/LogInPage';
-import Modal from './components/Modal';
+import ProjectItem from "./components/ProjectItem";
+import ProfilePage from "./components/ProfilePage";
+import CreateNewProjectPage from "./components/CreateNewProjectPage";
+import SignUpPage from "./components/SignUpPage";
+import LogInPage from "./components/LogInPage";
+import Modal from "./components/Modal";
 
 // images
-import logo from './assets/sc_logo_regular_dark.png';
+import logo from "./assets/sc_logo_regular_dark.png";
 
 // styles
-import './App.css';
+import "./App.css";
 
 function App() {
   const url: string =
-    import.meta.env.MODE === 'development' ? 'http://localhost:8080/' : '/'; // sets database target URL based on current environment
+    import.meta.env.MODE === "development" ? "http://localhost:8080/" : "/"; // sets database target URL based on current environment
 
   //const [userData, setUserData] = useState<User[] | null>(null);
 
@@ -33,15 +34,15 @@ function App() {
 
   // check to see if the user has a valid session token on page load
   const checkIfLoggedIn = async () => {
-    const result = await getData(url, 'api/auth/user');
+    const result = await getData(url, "api/auth/user");
 
     if (
-      result.message === 'Unauthorized' ||
-      result.message === 'User not found'
+      result.message === "Unauthorized" ||
+      result.message === "User not found"
     ) {
       setLoggedInUser(null);
     } else {
-      setLoggedInUser(result);
+      setLoggedInUser(result.user);
     }
   };
 
@@ -54,7 +55,7 @@ function App() {
       //const userResult = await getData(url, 'api/user');
       //setUserData(userResult);
 
-      const projectResult = await getData(url, 'api/project');
+      const projectResult = await getData(url, "api/project");
       setProjectData(projectResult);
     })();
   }, []);
@@ -63,6 +64,7 @@ function App() {
   // checks for users logging in or out
   useEffect(() => {
     checkIfLoggedIn();
+    console.log(loggedInUser);
   }, [currentModal]);
 
   return (
@@ -137,7 +139,7 @@ function App() {
                       )
                     }
                   >
-                    Login{' '}
+                    Login{" "}
                     <span className="nav-icon">
                       <FontAwesomeIcon icon={faRightToBracket} size="lg" />
                     </span>
@@ -153,7 +155,7 @@ function App() {
         {loggedInUser ? (
           <section className="user-logged-in-hero">
             <h2 className="frontpage-hero-title">
-              Hello,{' '}
+              Hello,{" "}
               <span className="user-logged-in-name">
                 {loggedInUser.username}
               </span>
@@ -187,6 +189,8 @@ function App() {
               ))}
           </ul>
         </section>
+        {/* Temporary fix to add a sapce to see the whole recent projects box ( height was added in App.css ) */}
+        <footer></footer>
       </main>
     </>
   );

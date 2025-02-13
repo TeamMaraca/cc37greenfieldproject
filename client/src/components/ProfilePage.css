@@ -9,11 +9,20 @@
   overflow-y: auto;
 }
 
+.profile-page label {
+  padding-top: 0.9rem;
+}
+
 .avatar {
-  width: 150px;
-  margin-top: 1rem;
+  object-fit: cover;
+  width: 6rem;
+  height: 6rem;
+  object-position: top;
+  position: relative;
+  top: 0;
+  /* margin-top: 1rem; */
   border: 3px solid transparent;
-  border-radius: 100%;
+  border-radius: 50%;
   background: conic-gradient(#f1f1f1 /* the background color */ 0 0) padding-box,
     linear-gradient(var(--primary-accent-color), var(--primary-logo-color))
       border-box;
@@ -22,6 +31,57 @@
 .profile-page button {
   align-self: center;
   min-width: 100px;
-  margin-top: 1.5rem;
+  margin-top: 1.2rem;
   padding: 0.6rem;
+  margin-bottom: 0.3rem;
 }
+
+/* project contribution styling */
+
+.profile-project-contribution-container {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.profile-project-contribution-container button {
+  margin-top: 0.5rem;
+  padding: 0.6rem 2rem;
+}
+
+.profile-project-contribution-list li {
+  height: auto;
+  margin: 0.3rem;
+  padding: 0.4rem;
+  width: auto;
+  text-align: center;
+  border: 2px solid #0000;
+  /* initally hide li elements */
+  opacity: 0;
+}
+#upload-img-input {
+  display: none;
+}
+
+/* animation using keyframes */
+
+@keyframes expand {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* applying keyframes to project contribution list */
+
+/* show */
+.profile-project-contribution-list.show li {
+  animation: expand 0.4s ease-out forwards;
+  animation-delay: calc(var(--delay) * 0.3s);
+}
+
+/* future feat, nice close drop down list animation */

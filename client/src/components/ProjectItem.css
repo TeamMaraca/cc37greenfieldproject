@@ -13,12 +13,12 @@
 
 .project-item p {
   margin-top: 0.2rem;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
   font-size: 1.1rem;
 }
 
 .project-item .description {
-  text-overflow: '...';
+  text-overflow: "...";
   overflow: hidden;
   white-space: nowrap;
 }

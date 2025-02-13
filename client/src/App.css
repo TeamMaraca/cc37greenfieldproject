@@ -64,6 +64,7 @@ main {
 .news-feed {
   width: 95%;
   max-width: 1200px;
+  height: auto;
   padding: 1.5rem;
   background-color: var(--primary-monochrome-color);
   border-radius: 10px;
@@ -92,4 +93,9 @@ main {
 iframe {
   width: 400px;
   height: 60px;
+}
+
+/* temporary fix to show the whole recent projects, by scrolling down*/
+footer {
+  height: 10vh;
 }

@@ -59,7 +59,7 @@
 }
 
 .project-page .stem-name {
-  text-overflow: '...';
+  text-overflow: "...";
   overflow: hidden;
   white-space: nowrap;
 }

@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowsRotate } from '@fortawesome/free-solid-svg-icons';
-import { faCrown } from '@fortawesome/free-solid-svg-icons';
-import { faTrashCan } from '@fortawesome/free-regular-svg-icons';
-import { faDownload } from '@fortawesome/free-solid-svg-icons/faDownload';
-import { faUpload } from '@fortawesome/free-solid-svg-icons/faUpload';
-import './ProjectPage.css';
-import { Project, User, Stem, Member } from '../globalTypes';
-import { deleteData, getData } from '../helpers/fetchHelpers';
+import React, { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowsRotate } from "@fortawesome/free-solid-svg-icons";
+import { faCrown } from "@fortawesome/free-solid-svg-icons";
+import { faTrashCan } from "@fortawesome/free-regular-svg-icons";
+import { faDownload } from "@fortawesome/free-solid-svg-icons/faDownload";
+import { faUpload } from "@fortawesome/free-solid-svg-icons/faUpload";
+import "./ProjectPage.css";
+import { Project, User, Stem, Member } from "../globalTypes";
+import { deleteData, getData } from "../helpers/fetchHelpers";
 
 type ProjectPageProps = {
   project: Project;
@@ -17,11 +17,11 @@ type ProjectPageProps = {
 const ProjectPage = ({ project, loggedInUser }: ProjectPageProps) => {
   // changes database target URL depending on current environment
   const url: string =
-    import.meta.env.MODE === 'development' ? 'http://localhost:8080/' : '/';
+    import.meta.env.MODE === "development" ? "http://localhost:8080/" : "/";
 
   const [members, setMembers] = useState<Member[]>([]);
   const [stems, setStems] = useState<Stem[]>([]);
-  const [message, setMessage] = useState<string>('');
+  const [message, setMessage] = useState<string>("");
   const [error, setError] = useState<string | null>(null);
 
   // checks to see if the logged in user can join this project
@@ -64,7 +64,7 @@ const ProjectPage = ({ project, loggedInUser }: ProjectPageProps) => {
         const stemsData = await stemsResponse.json();
         setStems(stemsData);
       } catch (error) {
-        console.error('Error fetching project data:', error);
+        console.error("Error fetching project data:", error);
       }
     };
 
@@ -76,51 +76,51 @@ const ProjectPage = ({ project, loggedInUser }: ProjectPageProps) => {
   const handleFileUpload = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const fileInput = document.getElementById('fileInput') as HTMLInputElement;
+    const fileInput = document.getElementById("fileInput") as HTMLInputElement;
     const file = fileInput.files?.[0];
 
     if (!file) {
-      setMessage('No file selected');
+      setMessage("No file selected");
       return;
     }
 
     const formData = new FormData();
-    formData.append('file', file);
-    formData.append('project_id', project.id.toString());
+    formData.append("file", file);
+    formData.append("project_id", project.id.toString());
 
     try {
       const response = await fetch(`${url}api/user/upload`, {
-        method: 'POST',
+        method: "POST",
         body: formData,
-        credentials: 'include',
+        credentials: "include",
       });
 
       const data = await response.json();
 
       if (response.ok) {
-        setMessage('File uploaded successfully');
+        setMessage("File uploaded successfully");
         setStems((prevStems) => [...prevStems, data.stem]);
       } else {
         setMessage(data.message);
         console.error(message);
       }
     } catch (error) {
-      console.error('Error:', error);
-      setMessage('An error occurred');
+      console.error("Error:", error);
+      setMessage("An error occurred");
     }
   };
 
   const addUserToProject = async () => {
     if (!loggedInUser) {
       // if the user is not logged in, prevent joining a project
-      setError('You must be logged in to join a project');
+      setError("You must be logged in to join a project");
     }
 
     try {
       // get the current userID
       if (loggedInUser) {
         await fetch(`${url}api/project/${loggedInUser.id}/${project.id}`, {
-          method: 'POST',
+          method: "POST",
         });
       }
       const membersResponse = await fetch(
@@ -129,7 +129,7 @@ const ProjectPage = ({ project, loggedInUser }: ProjectPageProps) => {
       const membersData = await membersResponse.json();
       setMembers(membersData);
     } catch (err) {
-      setError('User could not be added to project.');
+      setError("User could not be added to project.");
       console.error(error, err);
     }
   };

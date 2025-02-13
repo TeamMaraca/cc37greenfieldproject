@@ -1,9 +1,9 @@
 :root {
   /* font book */
-  --title-text: 'Krona One', sans-serif;
-  --body-text: 'Lexend', sans-serif;
-  --misc-text: 'Josefin Sans', sans-serif;
-  --block-text: 'Bebas Neue', sans-serif;
+  --title-text: "Krona One", sans-serif;
+  --body-text: "Lexend", sans-serif;
+  --misc-text: "Josefin Sans", sans-serif;
+  --block-text: "Bebas Neue", sans-serif;
 
   /* color book */
   --primary-logo-color: #86cecb;
@@ -140,6 +140,25 @@ textarea {
 }
 
 .required::after {
-  content: ' *';
+  content: " *";
   color: var(--primary-accent-color);
+}
+
+/* -------------scrollbar styling------------------- */
+
+/* width */
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--primary-accent-color);
+  border-radius: 10px;
+}
+
+/* Handle  */
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-logo-color);
+  border-radius: 10px;
 }
